@@ -11,16 +11,21 @@
     <groupId>com.alonelyleaf</groupId>
     <artifactId>common-utils</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>common-utils</name>
+    <packaging>pom</packaging>
 
     <modules>
         <module>common-guava</module>
+        <module>common-netty</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <guava.version>27.1-jre</guava.version>
+        <netty.version>4.1.36.Final</netty.version>
+        <protobuf.version>3.5.1</protobuf.version>
+        <fastjson.version>1.2.57</fastjson.version>
+
     </properties>
 
     <dependencies>
@@ -39,8 +44,34 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <compilerArgument>-Xlint:deprecation</compilerArgument>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.16</version>
+                <configuration>
+                    <!-- 打包的时候不启用测试-->
+                    <skip>true</skip>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <argLine>-Xmx256M</argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>2.16</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

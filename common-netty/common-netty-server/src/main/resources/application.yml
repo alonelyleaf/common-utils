@@ -1,0 +1,25 @@
+
+#############
+epoll.enable: true
+
+## 连接配置
+connect.server:
+  port: 9988
+  bossNumber: 2
+  soBacklog: 65535
+  snd-buf: 32768
+  rcv-buf: 32768
+  tcp-no-delay: true
+  redirect: true
+
+## 网关配置
+gateway.server:
+  port: 9986
+  refresh.delay: 5
+
+## 日志限速 5M
+traffic.readLimit: 5242880
+
+## 本机网络配置 外网ip, 默认取第一个网卡
+net:
+  public-ip: 10.10.10.10
