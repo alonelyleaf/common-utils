@@ -31,10 +31,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Kent
- * @date 2017/12/28.
- */
 public class ConnectServer extends NettyTCPServer {
 
     private Logger logger = LoggerFactory.getLogger(ConnectServer.class);

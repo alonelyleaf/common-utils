@@ -3,10 +3,6 @@ package com.alonelyleaf.netty.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-/**
- * @author Kent
- * @date 2018/5/26.
- */
 @Component
 public class CommonConfig {
 
