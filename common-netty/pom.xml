@@ -15,6 +15,7 @@
         <module>common-netty-core</module>
         <module>common-netty-server</module>
         <module>common-netty-simple</module>
+        <module>common-netty-websocket</module>
     </modules>
 
 </project>
