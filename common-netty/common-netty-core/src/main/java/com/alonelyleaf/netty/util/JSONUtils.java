@@ -13,7 +13,7 @@ public class JSONUtils {
         return JSON.toJSONString(object);
     }
 
-    public static <T>T deserialize(String jsonString, Class<T> clazz) {
+    public static <T> T deserialize(String jsonString, Class<T> clazz) {
 
         return JSON.parseObject(jsonString, clazz);
     }
