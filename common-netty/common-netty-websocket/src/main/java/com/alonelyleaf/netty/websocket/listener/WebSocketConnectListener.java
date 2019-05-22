@@ -7,6 +7,8 @@ import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static org.springframework.util.StringUtils.isEmpty;
+
 public class WebSocketConnectListener extends WebSocketBaseService implements ConnectListener {
 
     @Autowired
@@ -16,6 +18,10 @@ public class WebSocketConnectListener extends WebSocketBaseService implements Co
     public void onConnect(SocketIOClient socketIOClient) {
 
         String token = socketIOClient.getHandshakeData().getHttpHeaders().get(Constant.WebSocket.TOKEN_HEADER);
+
+        if (isEmpty(token) || !isAuth(token)){
+            return;
+        }
 
         //每个企业一个room，用于群发
         socketIOClient.joinRoom(Constant.SocketIOClientRoom.room);

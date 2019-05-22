@@ -5,6 +5,7 @@ import com.alonelyleaf.netty.websocket.connection.ConnectionCache;
 import com.alonelyleaf.netty.websocket.constant.Constant;
 import com.alonelyleaf.netty.websocket.service.WebSocketBaseService;
 import com.corundumstudio.socketio.SocketIOClient;
+import com.corundumstudio.socketio.annotation.OnConnect;
 import com.corundumstudio.socketio.annotation.OnEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ public class WebSocketEventHandler extends WebSocketBaseService {
     private ConnectionCache cache;
 
     /**
-     * 前端获取未读信息
+     * receive event by event name
      *
      * @param client
      */
