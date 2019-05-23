@@ -16,6 +16,8 @@
     <modules>
         <module>common-guava</module>
         <module>common-netty</module>
+        <module>common-mq</module>
+        <module>common-util</module>
     </modules>
 
     <properties>
@@ -29,17 +31,22 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
 
+        <!-- test scope starts from here -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
+
+    <!--只是对版本进行管理，不会实际引入jar-->
+    <dependencyManagement>
+        <dependencies>
+
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

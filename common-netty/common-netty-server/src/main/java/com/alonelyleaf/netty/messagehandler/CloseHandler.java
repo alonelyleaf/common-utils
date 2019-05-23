@@ -6,7 +6,7 @@ import com.alonelyleaf.netty.api.protocol.Packet;
 import com.alonelyleaf.netty.connection.Connection;
 import com.alonelyleaf.netty.context.Context;
 import com.alonelyleaf.netty.message.MessageHandler;
-import com.alonelyleaf.netty.util.JSONUtils;
+import com.alonelyleaf.util.JSONUtils;
 import com.google.protobuf.ByteString;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;

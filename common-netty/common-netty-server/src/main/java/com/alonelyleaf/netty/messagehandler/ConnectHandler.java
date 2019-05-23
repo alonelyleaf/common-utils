@@ -6,7 +6,7 @@ import com.alonelyleaf.netty.config.CommonConfig;
 import com.alonelyleaf.netty.connection.Connection;
 import com.alonelyleaf.netty.context.Context;
 import com.alonelyleaf.netty.message.MessageHandler;
-import com.alonelyleaf.netty.util.JSONUtils;
+import com.alonelyleaf.util.JSONUtils;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.alonelyleaf.netty.util;
+package com.alonelyleaf.util;
 
 import com.alibaba.fastjson.JSON;
 

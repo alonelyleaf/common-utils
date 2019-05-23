@@ -27,9 +27,14 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-to-slf4j</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alonelyleaf</groupId>
+            <artifactId>common-util</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
