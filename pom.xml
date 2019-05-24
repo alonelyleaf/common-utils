@@ -18,6 +18,7 @@
         <module>common-netty</module>
         <module>common-mq</module>
         <module>common-util</module>
+        <module>common-concurrent</module>
     </modules>
 
     <properties>
