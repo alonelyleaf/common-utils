@@ -2,6 +2,7 @@ package com.alonelyleaf.concurrent.futuretask;
 
 import com.sun.istack.internal.NotNull;
 
+import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
@@ -35,12 +36,17 @@ import java.util.concurrent.FutureTask;
  */
 public class MyFutureTask<V> extends FutureTask<V> {
 
+    //增加taskId，对任务进行标记
+    private String taskId;
+
     public MyFutureTask(@NotNull Callable<V> callable) {
         super(callable);
+        taskId = UUID.randomUUID().toString();
     }
 
     public MyFutureTask(@NotNull Runnable runnable, V result) {
         super(runnable, result);
+        taskId = UUID.randomUUID().toString();
     }
 
     //可重写run(),cancel()等方法进行定制
@@ -49,5 +55,14 @@ public class MyFutureTask<V> extends FutureTask<V> {
 
         //run()方法中会调用callable的call()任务方法
         super.run();
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public MyFutureTask<V> setTaskId(String taskId) {
+        this.taskId = taskId;
+        return this;
     }
 }
