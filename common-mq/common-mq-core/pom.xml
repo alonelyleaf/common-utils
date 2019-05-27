@@ -4,28 +4,24 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.alonelyleaf</groupId>
-        <artifactId>common-utils</artifactId>
+        <artifactId>common-mq</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-
     </parent>
 
-    <artifactId>common-concurrent</artifactId>
+    <artifactId>common-mq-core</artifactId>
 
     <dependencies>
+        <!-- rocketmq -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>${rocketmq.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>13.0</version>
+            <groupId>com.alonelyleaf</groupId>
+            <artifactId>common-util</artifactId>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

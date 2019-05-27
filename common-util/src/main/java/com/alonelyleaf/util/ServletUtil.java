@@ -325,7 +325,7 @@ public class ServletUtil extends jodd.servlet.ServletUtil {
     public static void jsonOut(ServletResponse response, Object json) throws IOException {
 
         response.setContentType("application/json;charset=UTF-8");
-        response.getWriter().write(JSONUtils.serialize(json));
+        response.getWriter().write(JSONUtil.serialize(json));
         response.flushBuffer();
     }
 

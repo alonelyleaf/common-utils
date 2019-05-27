@@ -6,7 +6,7 @@ import com.alonelyleaf.netty.config.CommonConfig;
 import com.alonelyleaf.netty.connection.Connection;
 import com.alonelyleaf.netty.context.Context;
 import com.alonelyleaf.netty.message.MessageHandler;
-import com.alonelyleaf.util.JSONUtils;
+import com.alonelyleaf.util.JSONUtil;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
 import org.slf4j.Logger;
@@ -32,7 +32,7 @@ public class ConnectHandler implements MessageHandler<Packet> {
     public void handle(Packet packet, Connection connection) {
 
         String loginData = new String(packet.getData());
-        Login login = JSONUtils.deserialize(loginData, Login.class);
+        Login login = JSONUtil.deserialize(loginData, Login.class);
 
         if (check(login)) {
 
@@ -125,7 +125,7 @@ public class ConnectHandler implements MessageHandler<Packet> {
                 .setDataType(0)
                 .setSessionId(packet.getSessionId())
                 .setApiVersion(2)
-                .setData(JSONUtils.serialize(new ConnectResult(host, port)).getBytes());
+                .setData(JSONUtil.serialize(new ConnectResult(host, port)).getBytes());
 
         return result;
     }

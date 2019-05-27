@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSON;
  * @author bijl
  * @date 2019/5/17
  */
-public class JSONUtils {
+public class JSONUtil {
 
     public static String serialize(Object object) {
 

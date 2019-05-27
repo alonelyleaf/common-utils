@@ -4,7 +4,7 @@ import com.alonelyleaf.guava.base.ApplicationContextProvider;
 import com.alonelyleaf.guava.eventbus.event.OfflineEvent;
 import com.alonelyleaf.guava.eventbus.eventbus.EventBusCenter;
 
-import com.alonelyleaf.util.JSONUtils;
+import com.alonelyleaf.util.JSONUtil;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.Subscribe;
 import org.slf4j.Logger;
@@ -44,6 +44,6 @@ public class UploadEventSubscriber {
 
     private void dealWith(OfflineEvent event){
 
-        logger.info("UploadEventSubscriber receive event {}", JSONUtils.serialize(event));
+        logger.info("UploadEventSubscriber receive event {}", JSONUtil.serialize(event));
     }
 }

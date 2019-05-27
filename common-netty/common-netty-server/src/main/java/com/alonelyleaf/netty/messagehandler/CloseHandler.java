@@ -6,7 +6,7 @@ import com.alonelyleaf.netty.api.protocol.Packet;
 import com.alonelyleaf.netty.connection.Connection;
 import com.alonelyleaf.netty.context.Context;
 import com.alonelyleaf.netty.message.MessageHandler;
-import com.alonelyleaf.util.JSONUtils;
+import com.alonelyleaf.util.JSONUtil;
 import com.google.protobuf.ByteString;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
@@ -40,7 +40,7 @@ public class CloseHandler implements MessageHandler<Packet> {
 
         OfflineMessage offlineMessage = new OfflineMessage(mac, channelId);
 
-        String offlineMsgStr = JSONUtils.serialize(offlineMessage);
+        String offlineMsgStr = JSONUtil.serialize(offlineMessage);
 
         return Message.MqMsg.newBuilder()
                 .setType(Command.CLOSE.cmd)

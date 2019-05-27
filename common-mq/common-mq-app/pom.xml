@@ -4,12 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.alonelyleaf</groupId>
-        <artifactId>common-utils</artifactId>
+        <artifactId>common-mq</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-
     </parent>
 
-    <artifactId>common-concurrent</artifactId>
+    <artifactId>common-mq-app</artifactId>
 
     <dependencies>
         <dependency>
@@ -22,11 +21,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>13.0</version>
-            <scope>compile</scope>
+            <groupId>com.alonelyleaf</groupId>
+            <artifactId>common-mq-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
