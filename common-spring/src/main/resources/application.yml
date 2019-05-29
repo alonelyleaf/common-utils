@@ -1,0 +1,41 @@
+
+#基础配置
+spring:
+  application:
+    name:  spring-sample
+    instance_id: 127.0.0.1
+  config:
+    location: classpath:/,classpath:/conf/,file:./,file:../conf/
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+#服务配置
+server:
+  port: 9999
+  connection-timeout: 5000
+  compression:
+    enabled: true
+    mime-types:
+      - application/json
+    min-response-size: 4096
+  tomcat:
+    accept-count: 500
+    min-spare-threads: 10
+    max-threads: 3000
+    max-connections: 10000
+    basedir: /usr/local/tomcat/base/${spring.application.name}
+
+#日志配置
+logging.file: /var/log/apollo/${spring.application.name}/${spring.application.name}.log
+logging:
+  file:
+    max-history: 10
+    max-size: 50MB
+  level:
+    root: INFO
+
+
+
+
