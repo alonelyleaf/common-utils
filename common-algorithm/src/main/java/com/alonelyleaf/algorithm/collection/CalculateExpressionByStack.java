@@ -1,4 +1,4 @@
-package com.alonelyleaf.algorithm.datastructure;
+package com.alonelyleaf.algorithm.collection;
 
 import java.util.Stack;
 import java.util.StringTokenizer;
@@ -15,6 +15,18 @@ public class CalculateExpressionByStack {
 
         String expression = "1+2*(2+3)/4";
         System.out.println(Claculator.compute(expression));
+    }
+
+    /**
+     * Stack
+     *
+     *  底层是数组, 继承自Vector, 先进后出FILO, 默认new Stack()容量为10, 超出自动扩容为2倍.
+     */
+    public void stack(){
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        Integer peek = stack.peek();
+        Integer pop = stack.pop();
     }
 
     /**
