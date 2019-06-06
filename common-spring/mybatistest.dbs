@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="mysql_test" id="Project_53840d4" template="Default" database="MySql" >
+	<schema name="test" catalogname="test" >
+		<table name="staff" >
+			<column name="id" type="varchar" length="32" jt="12" mandatory="y" >
+				<comment><![CDATA[主键]]></comment>
+			</column>
+			<column name="username" type="varchar" length="32" jt="12" mandatory="y" />
+			<column name="password" type="varchar" length="64" jt="12" mandatory="y" />
+			<column name="staff_age" type="int" jt="4" >
+				<defo>0</defo>
+			</column>
+			<column name="nick_name" type="varchar" length="32" jt="12" />
+			<column name="gmt_create" type="datetime" jt="93" />
+			<column name="gmt_modified" type="datetime" jt="93" />
+			<index name="pk_staff_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+	</schema>
+	<connector name="mysql_test" database="MySql" driver_class="com.mysql.jdbc.Driver" driver_jar="mysql-connector-java-5.1.46.jar" driver_desc="Standard" host="10.200.112.180" port="3306" instance="test" user="root" passwd="bXlzcWwxMjM=" />
+	<layout name="Default Layout" id="Layout_b10a28" show_relation="columns" >
+		<entity schema="test" name="staff" color="C1D8EE" x="112" y="80" />
+		<callout x="48" y="48" pointer="NO" >
+			<comment><![CDATA[Create new tables from the right-click pop-up, new foreign keys by drag and drop of one column over the Pk column.
+For a better understanding of the schema create multiple layouts (diagrams) with the same or different tables.]]></comment>
+		</callout>
+	</layout>
+</project>
