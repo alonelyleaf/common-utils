@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 import java.io.UnsupportedEncodingException;
 
 /**
+ * 订阅单个频道的简单实现
+ *
  * @author bijl
  * @date 2019/6/6
  */
@@ -31,7 +33,7 @@ public class MyRedisChannelListener implements MessageListener {
         }
     }
 
-    @Bean
+    /*@Bean
     MessageListenerAdapter messageListenerAdapter() {
         return new MessageListenerAdapter(new MyRedisChannelListener());
     }
@@ -40,9 +42,10 @@ public class MyRedisChannelListener implements MessageListener {
     RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
+        //news 订阅频道
         container.addMessageListener(listenerAdapter, new PatternTopic("news"));
         return container;
 
     }
-
+*/
 }
