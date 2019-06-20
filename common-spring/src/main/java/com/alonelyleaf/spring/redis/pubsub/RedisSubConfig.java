@@ -1,5 +1,6 @@
 package com.alonelyleaf.spring.redis.pubsub;
 
+import com.alonelyleaf.spring.common.constant.Constant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
