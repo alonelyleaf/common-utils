@@ -1,5 +1,5 @@
 
-#
+# 应用配置
 spring:
   application:
     name:  spring-sample
@@ -11,7 +11,7 @@ spring:
       max-file-size: 50MB
       max-request-size: 50MB
 
-#��������
+# 服务配置
 server:
   port: 9999
   connection-timeout: 5000
@@ -27,7 +27,7 @@ server:
     max-connections: 10000
     basedir: /usr/local/tomcat/base/${spring.application.name}
 
-#��־����
+# 日志路径配置
 logging.file: /var/log/apollo/${spring.application.name}/${spring.application.name}.log
 logging:
   file:
@@ -95,4 +95,60 @@ spring.redis.lettuce.pool.max-idle: 8
 # 连接池中的最小空闲连接 默认 0
 spring.redis.lettuce.pool.min-idle: 0
 
+#-----------------start spring cloud netflix config---------------------
+
+#ribbon配置 see more：com.netflix.client.config.DefaultClientConfigImpl
+ribbon:
+  # 启用okhttp
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+  ConnectTimeout: 5000
+  ReadTimeout: 30000
+  MaxConnectionsPerHost: 200 #每个节点的最大连接数 默认值50
+  MaxTotalConnections: 2000 # 总连接数 默认值200
+  PoolMinThreads: 5 #线程池最小容量 默认值1 值范围1-10
+  PoolMaxThreads: 300 #线程池最大容量 默认值 200 值范围200-400
+
+#feign配置
+feign:
+  # 启用okhttp
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+  hystrix:
+    enabled: true
+  compression:
+    response:
+      enabled: true
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 4096
+
+#断路器配置
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        # 关闭断路器
+        enable: false
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            # 断路器处理的超时时间 (毫秒), 大于等于 ribbon 总超时时间
+            # timeoutInMilliseconds > (ribbonReadTimeout + ribbonConnectTimeout) * (maxAutoRetries + 1) * (maxAutoRetriesNextServer + 1)
+            timeoutInMilliseconds: 35000
+  threadpool:
+    default:
+      # 核心线程数
+      coreSize: 100
+      # 最大线程数
+      maximumSize: 2000
+
+#-----------------end spring cloud netflix config---------------------
 

@@ -1,0 +1,24 @@
+# consul配置
+spring:
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        enabled: true
+        prefer-ip-address: true
+        healthCheckPath: /health
+        healthCheckInterval: 30s
+        healthCheckCriticalTimeout: 10m
+        health-check-timeout: 25s
+        rate: 10000
+        tags: version=1.0.0.0,environment=production
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+      config:
+        enabled: true
+        format: YAML
+        prefix: config
+        data-key: data
+        profileSeparator: ","
+        watch:
+          delay: 600000
