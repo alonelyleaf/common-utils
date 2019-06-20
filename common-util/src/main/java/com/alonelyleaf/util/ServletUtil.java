@@ -15,8 +15,6 @@ import java.io.IOException;
 /**
  * Servlet工具类
  *
- * @author christ
- * @date 2015/11/2
  */
 public class ServletUtil extends jodd.servlet.ServletUtil {
 
