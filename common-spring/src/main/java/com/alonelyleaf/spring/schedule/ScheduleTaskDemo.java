@@ -4,6 +4,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
+ * https://www.jianshu.com/p/1defb0f22ed1
+ *
  * @author bijl
  * @date 2019/6/13
  */
