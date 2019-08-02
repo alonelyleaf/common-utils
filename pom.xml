@@ -21,6 +21,7 @@
         <module>common-concurrent</module>
         <module>common-spring</module>
         <module>common-algorithm</module>
+        <module>common-ldap</module>
     </modules>
 
     <properties>
