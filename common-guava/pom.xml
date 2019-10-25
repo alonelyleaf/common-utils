@@ -33,6 +33,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 模板引擎： 即一种基于模板和要改变的数据， 并用来生成输出文本(HTML网页，电子邮件，配置文件，源代码等)的通用工具。
+        详见 http://freemarker.foofun.cn/ -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.alonelyleaf</groupId>
             <artifactId>common-util</artifactId>
