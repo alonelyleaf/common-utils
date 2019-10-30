@@ -25,11 +25,12 @@ public class CacheAnnotationsDemo {
     /**
      * @CachePut 注释，这个注释可以确保方法被执行，同时方法的返回值也被记录到缓存中，实现缓存与数据库的同步更新
      */
-    @CachePut(value = "staff", key = "staff.getId()")
-    public void createStaff(Staff staff){
+    @CachePut(value = "staff", key = "#staff.getId()")
+    public Staff createStaff(Staff staff){
 
         //添加
         staffs.putIfAbsent(staff.getId(), staff);
+        return staff;
     }
 
     /**
@@ -38,7 +39,7 @@ public class CacheAnnotationsDemo {
      * 是参数id，value 就是 Staff 对象。“staff”缓存是在 spring*.xml 中定义的名称。
      *
      */
-    @Cacheable(value = "staff")
+    @Cacheable(value = "staff", key = "#id")
     public Staff getStaff(String id){
 
         //查询

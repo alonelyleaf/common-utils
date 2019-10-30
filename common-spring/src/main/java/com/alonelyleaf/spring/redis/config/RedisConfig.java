@@ -1,5 +1,7 @@
 package com.alonelyleaf.spring.redis.config;
 
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -12,6 +14,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @date 2019/6/10
  */
 @Configuration
+@AutoConfigureAfter(RedisAutoConfiguration.class) //让我们这个配置类在内置的配置类之后在配置，这样就保证我们的配置类生效，并且不会被覆盖配置
 public class RedisConfig {
 
     @Bean
