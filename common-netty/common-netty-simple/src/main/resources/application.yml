@@ -1,2 +1,4 @@
 
-netty.server.port: 9000
+server.port: 9999
+
+netty.server.port: 9001
