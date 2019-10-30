@@ -43,20 +43,20 @@ public class LdapSupport extends CommonUtil {
 
     public LdapConfig getLdapConfig(){
 
-        return JSONUtil.deserialize("{\n" +
-                "        \"host\" : \"10.200.108.65\", \n" +
-                "        \"port\" : NumberInt(389), \n" +
-                "        \"transmissionMode\" : NumberInt(0), \n" +
-                "        \"username\" : \"LDAP\\\\Administrator\", \n" +
-                "        \"password\" : \"\", \n" +
-                "        \"baseDn\" : \"CN=Users,DC=ldap,DC=yealink,DC=cn\", \n" +
-                "        \"nameAttr\" : \"name\", \n" +
-                "        \"numberAttr\" : \"telephoneNumber\", \n" +
-                "        \"ldapAccountAttr\" : \"sAMAccountName\", \n" +
-                "        \"telephoneNumberAttr\" : \"telephoneNumber\", \n" +
-                "        \"mailAttr\" : \"mail\", \n" +
-                "        \"authenticationType\" : null, \n" +
-                "    }", LdapConfig.class);
+        return JSONUtil.deserialize("{" +
+                "\"host\" : \"10.200.108.65\"," +
+                "\"port\" : 389," +
+                "\"transmissionMode\" : 0," +
+                "\"username\" : \"LDAP\\\\Administrator\"," +
+                "\"password\" : \"Yealink!1105\"," +
+                "\"baseDn\" : \"CN=Users,DC=ldap,DC=yealink,DC=cn\"," +
+                "\"nameAttr\" : \"name\"," +
+                "\"numberAttr\" : \"telephoneNumber\"," +
+                "\"ldapAccountAttr\" : \"sAMAccountName\"," +
+                "\"telephoneNumberAttr\" : \"telephoneNumber\"," +
+                "\"mailAttr\" : \"mail\", " +
+                "\"authenticationType\" : null," +
+                "}", LdapConfig.class);
     }
 
     /**
