@@ -34,7 +34,7 @@ public class FormatTest {
             }
 
         } catch (Exception e) {
-            System.err.printf("Unable to open file named '%s': %s",
+            System.err.printf("Unable to open javaio named '%s': %s",
                     filename, e.getMessage());
         }
     }

@@ -22,6 +22,7 @@
         <module>common-spring</module>
         <module>common-algorithm</module>
         <module>common-ldap</module>
+        <module>common-time</module>
     </modules>
 
     <properties>
