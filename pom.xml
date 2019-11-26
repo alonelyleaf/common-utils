@@ -46,6 +46,17 @@
         <druid.version>1.1.10</druid.version>
 
         <okhttp.version>3.14.1</okhttp.version>
+
+        <!-- poi -->
+        <poi.version>3.16</poi.version>
+
+        <jxls.version>1.0.6</jxls.version>
+
+        <jxls2.version>2.6.0</jxls2.version>
+
+        <jxls2-poi.version>1.0.12</jxls2-poi.version>
+
+        <jxls2-jexcel.version>1.0.6</jxls2-jexcel.version>
     </properties>
 
     <dependencies>
