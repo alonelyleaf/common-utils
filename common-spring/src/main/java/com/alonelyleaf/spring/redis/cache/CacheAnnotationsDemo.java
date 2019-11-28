@@ -24,6 +24,18 @@ public class CacheAnnotationsDemo {
 
     /**
      * @CachePut 注释，这个注释可以确保方法被执行，同时方法的返回值也被记录到缓存中，实现缓存与数据库的同步更新
+     *
+     * redis里的键值
+     * user::1
+     * {"id":"1","name":"张三","age":18}
+     *
+     * 键上为什么带两个冒号::?
+     *
+     * RedisCache类createCacheKey方法
+     * CacheKeyPrefix接口
+     *      static CacheKeyPrefix simple() {
+     *         return name -> name + "::";
+     *      }
      */
     @CachePut(value = "staff", key = "#staff.getId()")
     public Staff createStaff(Staff staff){
