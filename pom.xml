@@ -23,6 +23,7 @@
         <module>common-algorithm</module>
         <module>common-ldap</module>
         <module>common-time</module>
+        <module>common-audit</module>
     </modules>
 
     <properties>
