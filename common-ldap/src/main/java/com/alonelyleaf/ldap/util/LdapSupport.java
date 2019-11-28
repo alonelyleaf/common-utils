@@ -48,8 +48,8 @@ public class LdapSupport extends CommonUtil {
                 "\"port\" : 389," +
                 "\"transmissionMode\" : 0," +
                 "\"username\" : \"LDAP\\\\Administrator\"," +
-                "\"password\" : \"Yealink!1105\"," +
-                "\"baseDn\" : \"CN=Users,DC=ldap,DC=yealink,DC=cn\"," +
+                "\"password\" : \"password\"," +
+                "\"baseDn\" : \"CN=Users,DC=ldap,DC=cn\"," +
                 "\"nameAttr\" : \"name\"," +
                 "\"numberAttr\" : \"telephoneNumber\"," +
                 "\"ldapAccountAttr\" : \"sAMAccountName\"," +

@@ -140,15 +140,15 @@ public class ConnectServer extends NettyTCPServer {
         try {
 
             KeyStore ks = KeyStore.getInstance("JKS");
-            ks.load(ConnectServer.class.getClassLoader().getResourceAsStream("temp.jks"), "yealink1105".toCharArray());
+            ks.load(ConnectServer.class.getClassLoader().getResourceAsStream("temp.jks"), "password".toCharArray());
 
             // Set up key manager factory to use our key store
             KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-            kmf.init(ks, "yealink1105".toCharArray());
+            kmf.init(ks, "password".toCharArray());
 
             // truststore
             KeyStore ts = KeyStore.getInstance("JKS");
-            ts.load(ConnectServer.class.getClassLoader().getResourceAsStream("temp.jks"), "yealink1105".toCharArray());
+            ts.load(ConnectServer.class.getClassLoader().getResourceAsStream("temp.jks"), "password".toCharArray());
 
             // set up trust manager factory to use our trust store
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
