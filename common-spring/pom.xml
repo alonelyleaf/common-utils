@@ -81,9 +81,10 @@
         <!-- 缓存的依赖，使用缓存注解需要的-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-start-cache</artifactId>
+            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
+        <!-- 线程池 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
@@ -128,6 +129,13 @@
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
+        </dependency>
+
+        <!-- groovy 模板引擎 -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-templates</artifactId>
+            <version>${groovy.version}</version>
         </dependency>
 
     </dependencies>
