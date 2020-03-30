@@ -5,16 +5,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ThreadPoolExecutor;
 
 @EnableAsync
+@ComponentScan("com.alonelyleaf.*")
 @EnableCaching
 @EnableScheduling
 @SpringBootApplication
@@ -24,6 +27,11 @@ public class CommonSpringApplication {
 
         ApplicationContext context = SpringApplication.run(CommonSpringApplication.class, args);
 
+        /**
+         * 通过调用ApplicationContext.registerShutdownHook()来注册钩子函数，实现bean的destroy，Spring容器的关闭，通过实现这些方法来实现平滑关闭。
+         *
+         * 注意：当前讨论的都是Spring非Web程序，如果是Web程序的话，不需要我们来注册钩子函数，Spring的Web程序已经有了相关的代码实现优雅关闭了。
+         */
         ((AbstractApplicationContext) context).registerShutdownHook();
     }
 
