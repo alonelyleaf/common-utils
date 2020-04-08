@@ -26,9 +26,9 @@ public class SortMethods {
         //s.selectSort(a);
         //s.heapSort(a);
         //s.bubbleSort(a);
-        //s.quickSort(a, 1, 9);
+        quickSort(a, 1, 9);
         //s.mergeSort(a, 3, 7);
-        baseSort(a);
+        //baseSort(a);
         System.out.println("耗时：" + (System.currentTimeMillis() - startTime) + "ms");
         System.out.println("排序后的数组为："+ Arrays.toString(a));
     }
@@ -266,28 +266,25 @@ public class SortMethods {
     public static void quickSort(int[] a, int start, int end) {
         if (start < end) {
             int baseNum = a[start];//选基准值
-            int midNum;//记录中间值
             int i = start;
             int j = end;
             do {
-                while ((a[i] < baseNum) && i < end) {
+                while ((a[i] < baseNum) && i < end) { //找到一个大于等于基准值的数
                     i++;
                 }
-                while ((a[j] > baseNum) && j > start) {
+                while ((a[j] > baseNum) && j > start) { //找到一个小于等于基准值的数
                     j--;
                 }
-                if (i <= j) {
-                    midNum = a[i];
-                    a[i] = a[j];
-                    a[j] = midNum;
+                if (i <= j) { //交换两个数，以保证左右两个组内的数分别小于和大于基准值
+                    swap(a, i, j);
                     i++;
                     j--;
                 }
-            } while (i <= j);
-            if (start < j) {
+            } while (i <= j);  //处理到两个指针相遇
+            if (start < j) {  //继续处理左边组
                 quickSort(a, start, j);
             }
-            if (end > i) {
+            if (end > i) { //继续处理左边组
                 quickSort(a, i, end);
             }
         }
