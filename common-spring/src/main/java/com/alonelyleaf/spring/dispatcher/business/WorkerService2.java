@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @DispatchClass
-@DependsOn("DispatchRegistry")
+@DependsOn("dispatchRegistry")
 public class WorkerService2 {
 
 

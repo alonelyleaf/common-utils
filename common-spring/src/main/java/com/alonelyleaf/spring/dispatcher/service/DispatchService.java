@@ -15,7 +15,6 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 @Service
-@DependsOn()
 public class DispatchService extends CommonUtil {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
