@@ -3,7 +3,6 @@ package com.alonelyleaf.spring.upgradescript;
 import com.alonelyleaf.spring.upgradescript.entity.UpgradeScript;
 import com.alonelyleaf.util.PathUtil;
 import com.alonelyleaf.util.ValidateUtil;
-import com.google.common.io.Files;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -105,7 +104,7 @@ public class UpgradeScriptService {
 
         if (ValidateUtil.isNotEmpty(subFiles)) {
             for (File subFile : subFiles) {
-                String extensionName = Files.getFileExtension(subFile.getName());
+                String extensionName = getFileExtension(subFile.getName());
                 if ("js".equalsIgnoreCase(extensionName)) {
                     //执行增量脚本
                 } else if ("sh".equalsIgnoreCase(extensionName)) {
@@ -113,5 +112,16 @@ public class UpgradeScriptService {
                 }
             }
         }
+    }
+
+    private String getFileExtension(String fullName) {
+
+        if (fullName == null){
+            return "";
+        }
+
+        String fileName = new File(fullName).getName();
+        int dotIndex = fileName.lastIndexOf('.');
+        return (dotIndex == -1) ? "" : fileName.substring(dotIndex + 1);
     }
 }

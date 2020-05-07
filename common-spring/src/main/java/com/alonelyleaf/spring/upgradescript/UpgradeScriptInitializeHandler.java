@@ -2,7 +2,6 @@ package com.alonelyleaf.spring.upgradescript;
 
 import com.alonelyleaf.spring.upgradescript.entity.UpgradeScript;
 import com.alonelyleaf.util.ValidateUtil;
-import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -45,7 +44,7 @@ public class UpgradeScriptInitializeHandler{
         }
         //获得已执行版本文件列表
         List<UpgradeScript> upgradeScripts = upgradeScriptService.getAllList();
-        List<String> execVersions = Lists.newArrayList();
+        List<String> execVersions = new ArrayList<>();
         if (ValidateUtil.isNotEmpty(upgradeScripts)) {
             execVersions = upgradeScripts.stream().map(UpgradeScript::getVersion).collect(Collectors.toList());
         }
