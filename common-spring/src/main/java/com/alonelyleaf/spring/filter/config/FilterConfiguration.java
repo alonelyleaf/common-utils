@@ -4,22 +4,48 @@ import com.alonelyleaf.spring.filter.SimpleFilterDemo;
 import com.alonelyleaf.spring.filter.impl.access.AccessFilter;
 import com.alonelyleaf.spring.filter.impl.authenticate.AuthenticateFilter;
 import com.alonelyleaf.spring.filter.impl.authenticate.TokenTouchFilter;
+import com.alonelyleaf.spring.filter.impl.frequency.FrequencyFilter;
+import com.alonelyleaf.spring.filter.impl.frequency.RateLimitConfig;
+import com.alonelyleaf.util.MapUtil;
+import com.alonelyleaf.util.StringPool;
 import jodd.util.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.DelegatingFilterProxy;
+
+import java.util.Map;
 
 /**
  * @author bijl
  * @date 2019/6/19
  */
-@Configuration
+@org.springframework.context.annotation.Configuration
 public class FilterConfiguration {
 
-    @Value("${access.log.pretty:false}")
-    private Boolean pretty;
+    @Value("${access.log.exclude:}")
+    private String exclude;
+
+    @Autowired
+    private RateLimitConfig rateLimitConfig;
+
+    /**
+     * 频率控制
+     *
+     * @return
+     */
+    @Bean
+    public FilterRegistrationBean freqencyFilter() {
+        FilterRegistrationBean bean = new FilterRegistrationBean(); //新建bean
+        bean.setOrder(0); //设置执行顺序
+        bean.setFilter(new FrequencyFilter()); //设置过滤器
+        bean.setName(AccessFilter.class.getName()); //设置名称
+        bean.addUrlPatterns("/api/v*"); //要进行过滤的url
+        bean.addInitParameter("url", StringUtil.join(frequencyLimit().keySet(), StringPool.SEMICOLON)); //初始化参数
+        bean.addInitParameter("limit", StringUtil.join(frequencyLimit().values(), StringPool.SEMICOLON)); //初始化参数
+        return bean;
+    }
 
     /**
      * 访问日志
@@ -33,7 +59,7 @@ public class FilterConfiguration {
         bean.setFilter(new AccessFilter()); //设置过滤器
         bean.setName(AccessFilter.class.getName()); //设置名称
         bean.addUrlPatterns("/*"); //要进行过滤的url
-        bean.addInitParameter("pretty", pretty.toString()); //初始化参数
+        bean.addInitParameter("exclude", exclude.toString()); //初始化参数
         return bean;
     }
 
@@ -106,5 +132,18 @@ public class FilterConfiguration {
                 "/conference/api/v?/fragile/*",
                 "/conference/api/v?/internal/*"
         };
+    }
+
+    /**
+     * 配置请求在指定的时间内最大请求次数
+     *
+     * @return
+     */
+    private Map<String, String> frequencyLimit() {
+
+        return MapUtil.asMap(
+                "/api/v?/external/phonebook/sync", rateLimitConfig.getSync(),
+                "/api/v?/external/phonebook/batchSync", rateLimitConfig.getBatchSync()
+        );
     }
 }

@@ -150,5 +150,13 @@ hystrix:
       # 最大线程数
       maximumSize: 2000
 
+
+microservice.rss.manager.host:
+
+
+# 频率控制配置
+ratelimit.config:
+  sync: 100
+  batchSync: 100
 #-----------------end spring cloud netflix config---------------------
 

@@ -152,4 +152,22 @@ public class ValidateUtil {
 
         return b != null && !b;
     }
+
+    /**
+     *
+     * 功 能：判断一个字符串是否含有非数字的字符<br/>
+     * 如果该字符串为空或者空内容，则认为不是数字<br/>
+     * 入口参数：param strSrc:待判断的字符串<br/>
+     * 出口参数： 返 回：return true：全是数字，false:不全是数字
+     * <p>
+     *
+     */
+    public static boolean isNum(String strSrc) {
+        if (isEmpty(strSrc)) {
+            return false;
+        } else {
+            String reg = "^\\d+$";
+            return Pattern.compile(reg).matcher(strSrc).find();
+        }
+    }
 }
