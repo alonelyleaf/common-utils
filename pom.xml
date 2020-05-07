@@ -30,6 +30,11 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <plugin.compiler.version>3.7.0</plugin.compiler.version>
+        <plugin.source.version>3.0.1</plugin.source.version>
+
+
+        <spring.cloud.version>Greenwich.RELEASE</spring.cloud.version>
 
         <guava.version>27.1-jre</guava.version>
         <netty.version>4.1.36.Final</netty.version>
@@ -51,14 +56,13 @@
 
         <!-- poi -->
         <poi.version>3.16</poi.version>
-
         <jxls.version>1.0.6</jxls.version>
-
         <jxls2.version>2.6.0</jxls2.version>
-
         <jxls2-poi.version>1.0.12</jxls2-poi.version>
-
         <jxls2-jexcel.version>1.0.6</jxls2-jexcel.version>
+
+        <!-- 分布式追踪 -->
+        <cloud.sleuth.version>2.0.2.RELEASE</cloud.sleuth.version>
     </properties>
 
     <dependencies>
@@ -81,9 +85,10 @@
 
     <build>
         <plugins>
+            <!-- 编译Java源码，一般只需设置编译的jdk版本 -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>${plugin.compiler.version}</version>
                 <configuration>
                     <compilerArgument>-Xlint:deprecation</compilerArgument>
                     <source>${java.version}</source>
@@ -91,6 +96,7 @@
                 </configuration>
             </plugin>
 
+            <!-- 用于mvn 生命周期的测试阶段的插件，可以通过一些参数设置方便的在testNG或junit下对测试阶段进行自定义 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

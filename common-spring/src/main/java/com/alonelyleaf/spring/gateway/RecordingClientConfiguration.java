@@ -4,7 +4,8 @@ import feign.*;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
 import feign.slf4j.Slf4jLogger;
-import org.springframework.cloud.netflix.feign.FeignClientsConfiguration;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cloud.openfeign.FeignClientsConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -15,7 +16,7 @@ public class RecordingClientConfiguration {
 
     @Bean
     public RecordingClient recordingClient(Decoder decoder,
-                                           Encoder encoder,
+                                           @Qualifier("feignEncoder") Encoder encoder,
                                            Client client,
                                            Contract contract,
                                            AccessTokenFinder accessTokenFinder) {
@@ -47,6 +48,6 @@ class AccessTokenInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate template) {
 
-        template.query(true, ACCESS_KEY, accessTokenFinder.getAccessToken());
+        template.query(ACCESS_KEY, accessTokenFinder.getAccessToken());
     }
 }
