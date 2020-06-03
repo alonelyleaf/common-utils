@@ -40,16 +40,6 @@ public class Config {
     @Bean("messageConsumer")
     public Consumer consumer(@Qualifier("rocketConfig") RocketConfig vasRocketConfig) {
 
-        Consumer consumer = new Consumer(vasRocketConfig);
-
-        try {
-            LOGGER.info("[VAS CONSUMER] start consumer");
-            consumer.start();
-            LOGGER.info("[VAS CONSUMER] start consumer success !");
-            return consumer;
-        } catch (MQClientException e) {
-            LOGGER.error("[START VAS CONSUMER ERROR]", e);
-            throw new RuntimeException(e);
-        }
+            return new Consumer(vasRocketConfig);
     }
 }

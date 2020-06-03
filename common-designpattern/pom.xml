@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>designpattern</artifactId>
+    <artifactId>common-designpattern</artifactId>
 
     <dependencies>
         <dependency>

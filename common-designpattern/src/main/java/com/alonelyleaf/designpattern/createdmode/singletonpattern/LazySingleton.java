@@ -19,10 +19,14 @@ public class LazySingleton {
     private LazySingleton() {
     }
 
-    public static synchronized LazySingleton getInstance() {
+    public static LazySingleton getInstance() {
         //getInstance 方法前加同步
         if (instance == null) {
-            instance = new LazySingleton();
+            synchronized (LazySingleton.class){
+                if (instance == null){
+                    instance = new LazySingleton();
+                }
+            }
         }
         return instance;
     }

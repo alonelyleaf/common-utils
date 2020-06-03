@@ -111,7 +111,7 @@ public class BusinessExceptionHandler {
             JsonMappingException jsonMappingException = (JsonMappingException) e.getCause();
 
             List<FieldError> fieldErrorList = jsonMappingException.getPath().stream()
-                    .map(reference -> new FieldError().setField(reference.getFieldName()).setMsg(Message.Common.PROTOCOL_NOT_MATCH))
+                    .map(reference -> new FieldError().setField(reference.getFieldName()).setMsg(Message.ServiceCommon.protocolNotMatch))
                     .collect(Collectors.toList());
 
             result.getError().setFieldErrors(fieldErrorList);
@@ -149,7 +149,7 @@ public class BusinessExceptionHandler {
      */
     protected Result createUnCatchErrorResult(Integer code, Exception e) {
         // DEFAULT:do not throw the exception message to client
-        return createErrorResult(code, Message.Common.INTERNAL_ERROR);
+        return createErrorResult(code, Message.ServiceCommon.internalError);
     }
 
     protected Result createErrorResult(Integer code, Exception e) {

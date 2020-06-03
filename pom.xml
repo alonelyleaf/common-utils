@@ -25,6 +25,8 @@
         <module>common-time</module>
         <module>common-audit</module>
         <module>common-mail</module>
+        <module>common-http</module>
+        <module>common-designpattern</module>
     </modules>
 
     <properties>

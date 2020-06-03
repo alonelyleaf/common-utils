@@ -1,6 +1,6 @@
-package com.alonelyleaf.spring.Template;
+package com.alonelyleaf.spring.template;
 
-import com.alonelyleaf.spring.Template.entity.Template;
+import com.alonelyleaf.spring.template.entity.Template;
 import groovy.text.SimpleTemplateEngine;
 
 import java.util.Map;

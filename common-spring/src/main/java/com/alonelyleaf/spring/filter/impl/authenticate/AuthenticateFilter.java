@@ -102,7 +102,7 @@ public class AuthenticateFilter extends ExcludeWildcardFilter {
     protected void refuse(ServletRequest request, ServletResponse response) throws IOException {
         logger.info("AUTHENTICATE REFUSE >> " + ServletUtil.getRequestURI(request));
 
-        ServletUtil.jsonOut(response, new Result().error(new Error().setMsg(Message.Common.UNAUTHORIZED)
+        ServletUtil.jsonOut(response, new Result().error(new Error().setMsg(Message.ServiceCommon.unauthorized)
                 .setErrorCode(StatusCode.UNAUTHORIZED)));
     }
 }

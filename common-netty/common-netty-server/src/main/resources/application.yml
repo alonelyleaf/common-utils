@@ -2,7 +2,7 @@
 #############
 epoll.enable: true
 
-## а╛╫сеДжц
+## О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 connect.server:
   port: 9988
   bossNumber: 2
@@ -12,14 +12,14 @@ connect.server:
   tcp-no-delay: true
   redirect: true
 
-## мЬ╧ьеДжц
+## О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 gateway.server:
   port: 9986
   refresh.delay: 5
 
-## хуж╬очкы 5M
+#
 traffic.readLimit: 5242880
 
-## ╠╬╩ЗмЬбГеДжц мБмЬip, д╛хох║╣зр╩╦ЖмЬ©╗
+## О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ip, д╛О©╫О©╫х║О©╫О©╫р╩О©╫О©╫О©╫О©╫О©╫О©╫
 net:
   public-ip: 10.10.10.10

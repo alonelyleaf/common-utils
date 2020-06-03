@@ -1,4 +1,4 @@
-package com.alonelyleaf.spring.Template.entity;
+package com.alonelyleaf.spring.template.entity;
 
 import java.util.Date;
 
