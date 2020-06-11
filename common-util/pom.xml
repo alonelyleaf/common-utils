@@ -104,6 +104,12 @@
             <version>${jxls2-jexcel.version}</version>
         </dependency>
 
+        <!-- 驼峰工具 -->
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
