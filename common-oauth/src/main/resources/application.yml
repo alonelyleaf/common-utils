@@ -30,7 +30,7 @@ spring:
       min-evictable-idle-time-millis: 300000
       stat-view-servlet:
         enabled: true
-        login-username: xiaozao
+        login-username: alonelyleaf
         login-password: a123456
       web-stat-filter:
         enabled: true

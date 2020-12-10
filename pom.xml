@@ -28,6 +28,7 @@
         <module>common-http</module>
         <module>common-designpattern</module>
         <module>common-oauth</module>
+        <module>common-websocket</module>
     </modules>
 
     <properties>
