@@ -1,0 +1,46 @@
+
+#服务器端口
+server:
+  port: 8100
+
+spring:
+  # 激活环境
+  profiles:
+    active: dev
+  #数据源配置
+  datasource:
+    url: jdbc:mysql://172.16.14.136:3301/openx?characterEncoding=utf8&useSSL=true
+    username: test_morning
+    password: testchaiku
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 5
+      max-active: 20000
+      min-idle: 5
+      max-wait: 60000
+      # MySql、PostgreSQL校验
+      validation-query: select 1
+      # Oracle校验
+      #validation-query: select 1 from dual
+      validation-query-timeout: 20000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      stat-view-servlet:
+        enabled: true
+        login-username: xiaozao
+        login-password: a123456
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*'
+        session-stat-enable: true
+        session-stat-max-count: 10
+      #hikari:
+      #connection-test-query: SELECT 1 FROM DUAL
+      #connection-timeout: 30000
+      #maximum-pool-size: 5
+      #max-lifetime: 1800000
+      #minimum-idle: 1
