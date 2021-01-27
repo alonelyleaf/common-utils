@@ -1,4 +1,4 @@
-package com.alonelyleaf.designpattern.createdmode.factorypattern;
+package com.alonelyleaf.designpattern.createdmode.factory;
 
 /**
  * @author bijl

@@ -1,4 +1,4 @@
-package com.alonelyleaf.designpattern.createdmode.singletonpattern;
+package com.alonelyleaf.designpattern.createdmode.singleton;
 
 /**
  * @author bijl
