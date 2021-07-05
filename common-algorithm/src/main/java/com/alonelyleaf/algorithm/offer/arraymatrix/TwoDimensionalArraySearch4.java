@@ -1,4 +1,4 @@
-package com.alonelyleaf.algorithm.offer;
+package com.alonelyleaf.algorithm.offer.arraymatrix;
 
 /**
  * 二维数组中的查找

@@ -1,4 +1,4 @@
-package com.alonelyleaf.algorithm.offer;
+package com.alonelyleaf.algorithm.offer.arraymatrix;
 
 /**
  * 数组中重复的数字
