@@ -13,10 +13,10 @@ import java.util.List;
 public class SortMethods {
 
     public static void main(String[] args) {
-        int []a=new int[1000];
-        for(int i=1;i<a.length;i++){
+        int[] a = new int[10];
+        for (int i = 0; i < a.length; i++) {
             //a[i]=(int)(new Random().nextInt(100));
-            a[i]=(int)(Math.random()*10000);
+            a[i] = (int) (Math.random() * 10);
         }
         System.out.println("排序前的数组为："+Arrays.toString(a));
         long startTime = System.currentTimeMillis();
@@ -26,7 +26,7 @@ public class SortMethods {
         //s.selectSort(a);
         //s.heapSort(a);
         //s.bubbleSort(a);
-        quickSort(a, 1, 9);
+        quickSort(a, 0, 9);
         //s.mergeSort(a, 3, 7);
         //baseSort(a);
         System.out.println("耗时：" + (System.currentTimeMillis() - startTime) + "ms");
