@@ -29,7 +29,6 @@
         <module>common-designpattern</module>
         <module>common-oauth</module>
         <module>common-websocket</module>
-        <module>common-prometheus</module>
     </modules>
 
     <properties>
