@@ -40,7 +40,7 @@ public class MaxInWindows59 {
         for (int i = 0, j = i + size; j < num.length; i++) {
             maxHeap.remove(num[i]);
             maxHeap.add(num[j]);
-            maxHeap.add(maxHeap.peek());
+            ret.add(maxHeap.peek());
         }
 
         return ret;

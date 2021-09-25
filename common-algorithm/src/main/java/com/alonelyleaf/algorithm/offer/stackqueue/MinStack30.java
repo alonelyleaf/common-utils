@@ -21,6 +21,8 @@ public class MinStack30 {
      */
     public void push(int node) {
         dataStack.push(node);
+
+        // 将最小值重复压入，保持数据栈与最小值栈的数据量相同
         minStack.push(minStack.isEmpty() ? node : Math.min(minStack.peek(), node));
     }
 
