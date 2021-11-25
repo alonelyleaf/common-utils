@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.alonelyleaf.mybatis.multi.config.MybatisAutoConfig,\
+com.alonelyleaf.mybatis.multi.config.CustomDynamicDataSourceConfig,\
+com.alonelyleaf.mybatis.multi.config.NoShardingConfig

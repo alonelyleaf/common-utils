@@ -29,6 +29,7 @@
         <module>common-designpattern</module>
         <module>common-oauth</module>
         <module>common-websocket</module>
+        <module>common-multi-mybatis</module>
     </modules>
 
     <properties>
@@ -65,25 +66,26 @@
         <jxls2-poi.version>1.0.12</jxls2-poi.version>
         <jxls2-jexcel.version>1.0.6</jxls2-jexcel.version>
 
+        <!-- dynamic-datasource -->
+        <pagehelper.version>5.1.8</pagehelper.version>
+        <druid-spring-boot-starter.version>1.1.23</druid-spring-boot-starter.version>
+        <baomidou.dynamic-datasource.version>3.2.1</baomidou.dynamic-datasource.version>
+        <shardingsphere.version>4.1.1</shardingsphere.version>
+
         <!-- 分布式追踪 -->
         <cloud.sleuth.version>2.0.2.RELEASE</cloud.sleuth.version>
     </properties>
 
-    <dependencies>
-
-        <!-- test scope starts from here -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-    </dependencies>
-
     <!--只是对版本进行管理，不会实际引入jar-->
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
